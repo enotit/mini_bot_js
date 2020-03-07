@@ -1,0 +1,47 @@
+/* стили для кнопки */
+button {
+    /* размеры кнопки */
+    width: 100px;
+    height: 40px;
+    /* граница элемента */
+    border: 1px solid black;
+    border-radius: 15px;
+    /* белый фон */
+    background-color: white;
+    /* уберем подсветку кнопки при клике */
+    outline: none;
+    /* приятно — плавные переходы при наведении */
+    transition: all .4s ease;
+    /* настройки шрифта */
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 20px;
+  }
+  
+  /* стили для кнопки при наведении */
+  button:hover {
+    /* курсор — палец */
+    cursor: pointer;
+    /* малиновая тень */
+  box-shadow: 3px 3px rgb(18, 113, 177);
+  border-radius: 20px;
+
+  }
+
+  button::-moz-focus-inner {
+    border: 0;
+  }
+input {
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 12px;
+    font-size: 15px;
+}
+textarea{
+    font-family: 'Arial Narrow', sans-serif;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 20px;
+    resize: none;
+}
