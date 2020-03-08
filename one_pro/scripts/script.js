@@ -60,7 +60,7 @@ if(name == ''){
 }
 else if(sex > 2){
     console.log('заходит')
-    if(quest.toLowerCase == 'да'){
+    if(quest.toLowerCase in sogl){
         sex -= 2
         return `Ваш пол выставлен ${(sex == 3)? 'мужской': 'женский'}`
     }else{
