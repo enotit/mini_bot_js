@@ -1,6 +1,6 @@
 // One used
 let sogl = ['да', 'согласен', 'угу', 'ага', 'дэ', 'верно', 'соглы']
-let priv = ['прив', 'здар', 'здра', 'сала', 'шало']
+let priv = ["прив", "здар", "здра", "сала", "шало"]
 // Always used
 var sex = 0; // 1 - муж(3), 2 - жен(4)
 var charact = '\n🤡:' // безликий
@@ -60,23 +60,24 @@ if(name == ''){
     }
 }
 else if(sex > 2){
-    console.log('заходит')
-    if(quest.toLowerCase in sogl){
-        sex -= 2
-        return `Ваш пол выставлен ${(sex == 3)? 'мужской': 'женский'}`
+    if(sogl.indexOf(quest.toLowerCase)){
+		console.log('User say yes', quest);
+        sex -= 2;
+        return `Ваш пол выставлен ${(sex == 2)? 'женский': 'мужской'}`
     }else{
+		console.log('User say no');
         sex = (sex == 4)? 1:2;
         charact = (sex == 1)? '\n🕺: ':'\n👩: ';
         return `Ваш пол выставлен ${(sex == 2)? 'женский': 'мужской'}`}
 }
 else{
     // Приветствие 
-    if(text.slice(0,4).toLowerCase() in priv){
-        Area.value += 'Привет - привет!';
+    if(priv.indexOf(quest.slice(0,4).toLowerCase)){
+        return 'Привет - привет!';
     }
     // Админ ответ
-    else if('admin' == text){
-        Area.value += 'Держите: [' + mesers + ']'
+    else if('admin' == quest){
+        return 'Держите: [' + mesers + ']';
         }
     // Нету готового ответа
     else{
