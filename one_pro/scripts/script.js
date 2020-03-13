@@ -1,6 +1,6 @@
 // One used
-let sogl = ['да', 'согласен', 'угу', 'ага', 'дэ', 'верно', 'соглы']
-let priv = ["прив", "здар", "здра", "сала", "шало"]
+var sogl = ['да', 'согласен', 'угу', 'ага', 'дэ', 'верно', 'соглы']
+var priv = ["прив", "здар", "здра", "сала", "шало"]
 // Always used
 var sex = 0; // 1 - муж(3), 2 - жен(4)
 var charact = '\n🤡:' // безликий
@@ -60,7 +60,7 @@ if(name == ''){
     }
 }
 else if(sex > 2){
-    if(sogl.indexOf(quest.toLowerCase)){
+    if(sogl.includes(quest.toLowerCase())){
 		console.log('User say yes', quest);
         sex -= 2;
         return `Ваш пол выставлен ${(sex == 2)? 'женский': 'мужской'}`
@@ -72,7 +72,7 @@ else if(sex > 2){
 }
 else{
     // Приветствие 
-    if(priv.indexOf(quest.slice(0,4).toLowerCase)){
+    if(priv.indexOf(quest.includes(0,4).toLowerCase())){
         return 'Привет - привет!';
     }
     // Админ ответ
