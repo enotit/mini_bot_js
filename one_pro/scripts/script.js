@@ -72,7 +72,7 @@ else if(sex > 2){
 }
 else{
     // Приветствие 
-    if(priv.indexOf(quest.includes(0,4).toLowerCase())){
+    if(priv.includes(quest.slice(0, 4).toLowerCase())){
         return 'Привет - привет!';
     }
     // Админ ответ
