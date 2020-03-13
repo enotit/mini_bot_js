@@ -9,6 +9,13 @@ let mesers = [] // список сообщений
 var count_xz = 0; // список вопросов без предв-го ответа
 var name = ''; // имя пользователя
 
+function speak(text) {
+    const message = new SpeechSynthesisUtterance();
+    message.lang = "ru-RU";
+    message.text = text;
+    window.speechSynthesis.speak(message);
+    console.log('skazal', text)
+  }
 
 function fir(){
     text = document.getElementById('valueID').value;    // Забираем текст с input
@@ -17,7 +24,9 @@ function fir(){
     if(text != ''){
         mesers.push(text) // Добавляем сообщение в массив
         Area.value += charact + text; // Добавляем  сообщение в Area пользователя
-        Area.value += bot + answer(text)
+        text_answer = answer(text)
+        Area.value += bot + text_answer
+        speak(text_answer)
     }
     else{
         var audio = new Audio();
@@ -79,6 +88,9 @@ else{
     else if('admin' == quest){
         return 'Держите: [' + mesers + ']';
         }
+    else if(quest.toLowerCase().startsWith('что такое') || quest.toLowerCase().startsWith('кто такой')){
+        
+    }
     // Нету готового ответа
     else{
         count_xz += 1;
