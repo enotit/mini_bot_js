@@ -17,7 +17,11 @@ function speak(text) {
     console.log('skazal', text)
   }
 
-function fir(){
+async function sleep(msec) {
+    return new Promise(resolve => setTimeout(resolve, msec));
+}
+
+async function fir(){
     text = document.getElementById('valueID').value;    // Забираем текст с input
     document.getElementById('valueID').value = '';  // input = ''
     var Area = document.getElementById("messangers"); // Обнаруживаем Area
@@ -25,12 +29,16 @@ function fir(){
         mesers.push(text) // Добавляем сообщение в массив
         Area.value += charact + text; // Добавляем  сообщение в Area пользователя
         text_answer = answer(text)
-        Area.value += bot + text_answer
         speak(text_answer)
+        Area.value += bot
+        for (let i = 0; i < text_answer.length; i++){
+            Area.value += text_answer[i]
+            await sleep(Math.random() * (100 - 50) + 50);
+        }
     }
     else{
         var audio = new Audio();
- 		audio.src = 'src/stop.mp3';
+         audio.src = 'rec/stop.mp3';
   		audio.autoplay = true;
         alert('Не обманеш!');
     }
@@ -53,8 +61,8 @@ function what_name(names){
         charact = '\n👩: ';
         sex = 4;
     }
-    name = names;
-    delete last;
+    name = names[0].toUpperCase() + names.slice(1,names.length).toLowerCase();
+    delete last, names;
     return
 }
 
